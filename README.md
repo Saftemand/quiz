@@ -8,7 +8,9 @@ Getting started with the application:
 1: 
 First you need to start a quiz. To do this go to http://quiz-huddup.rhcloud.com/admin.html and select one of the quizzes.
 For this example you should select: "HuddupQuiz: Dota 2 TI5 - #1". this quiz has ID 9610.
+
 Set the "countdown" to 60 seconds or more. This will give you plenty of time to do the next step.
+
 Press "Start".
 
 2: 
