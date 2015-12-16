@@ -1,0 +1,267 @@
+*{
+	margin:0;
+	padding:0;
+
+	font-family: "Myriad Pro", helvetica, sans-serif;
+	font-style: normal;
+	font-variant: normal;
+}
+
+body{
+	background-image: url('../media/aegis1.png');
+	background-size: 100%;
+}
+
+#divContainer{
+	width:100%;
+	height:100%;
+	position: relative;
+}
+#divCountdownContainer{
+	width: -webkit-calc(100% - 8px);
+	width: -moz-calc(100% - 8px);
+	width: -ms-calc(100% - 8px);
+	width: calc(100% - 8px);
+	height: -webkit-calc(100% - 8px);
+	height: -moz-calc(100% - 8px);
+	height: -ms-calc(100% - 8px);
+	height: calc(100% - 8px);
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	top:2px;
+	left:2px;
+	border: 2px solid;
+}
+
+#divCountdownTop{
+	width: 100%;
+	height: 25%;
+	text-align: center;
+}
+
+#divCountdownTopTitle{
+	width: 100%;
+	height: 30%;
+	font-size: 7vmin;
+	color:white;
+}
+
+#divCountdownTopText{
+	width: 100%;
+	height: 70%;
+	font-size: 4vmin;
+	color:white;
+}
+
+#divCountdownMid{
+	width: 100%;
+	height: 50%;
+	position: relative;
+}
+
+#divCountdownCentered{
+	height:100%;
+	left:50%;
+	top:50%;
+	position: absolute;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#imgResultScreen{
+	width: 100%;
+}
+
+#divCountdown{
+	width: 100%;
+	height: 100%;
+}
+
+#divCountdownBot{
+	width: 100%;
+	height: 25%;
+	text-align: center;
+	font-size: 4vmin;
+	color: white;
+}
+
+#divTopContainer{
+	width: -webkit-calc(100% - 8px);
+	width: -moz-calc(100% - 8px);
+	width: -ms-calc(100% - 8px);
+	width: calc(100% - 8px);
+	height: -webkit-calc(58% - 8px);
+	height: -moz-calc(58% - 8px);
+	height: -ms-calc(58% - 8px);
+	height:calc(58% - 8px);
+	background-color: rgba(0, 0, 0, 0.5);
+	position: relative;
+	top: 2px;
+	left: 2px;
+	border:2px solid;
+}
+
+#divHeader{
+	width:100%;
+	height: 20%;
+	text-align: center;
+	font-size: 10vmin;
+	color:white;
+}
+
+#divQuestionText{
+	width:100%;
+	height: 80%;
+	text-align: center;
+	font-size: 5vmin;
+	color:white;
+}
+
+#divQuestionTextTop{
+	width: 100%;
+	height: 20%;
+	font-size: 7vmin;
+}
+
+#divQuestionTextMid{
+	width: 100%;
+	height: 50%;
+	font-size: 4vmin;
+}
+
+#divQuestionTextBot{
+	width: 100%;
+	height: 30%;
+	font-size: 5vmin;
+}
+
+#divMiddleContainer{
+	width: -webkit-calc(100% - 8px);
+	width: -moz-calc(100% - 8px);
+	width: -ms-calc(100% - 8px);
+	width: calc(100% - 8px);
+	height: -webkit-calc(7% - 8px);
+	height: -moz-calc(7% - 8px);
+	height: -ms-calc(7% - 8px);
+	height: calc(7% - 8px);
+	background-color: rgba(0, 0, 0, 0.5);
+	position: relative;
+	top:5px;
+	left:2px;
+	border:2px solid;
+}
+
+#divTimer{
+	width: 100%;
+	height: 100%;
+}
+
+#canvasTimer{
+	width:100%;
+	height:100%;
+}
+
+#divBottomContainer{
+	width:-webkit-calc(100% - 4px);
+	width:-moz-calc(100% - 4px);
+	width:-ms-calc(100% - 4px);
+	width:calc(100% - 4px);
+	height:-webkit-calc(35% - 2px);
+	height:-moz-calc(35% - 2px);
+	height:-ms-calc(35% - 2px);
+	height:calc(35% - 2px);
+	position: relative;
+	top:8px;
+	left:2px;
+}
+
+#divAnswer1Container{
+	width: -webkit-calc(50% - 5px);
+	width: -moz-calc(50% - 5px);
+	width: -ms-calc(50% - 5px);
+	width: calc(50% - 5px);
+	height: -webkit-calc(50% - 5px);
+	height: -moz-calc(50% - 5px);
+	height: -ms-calc(50% - 5px);
+	height: calc(50% - 5px);
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	border:2px solid;
+	top:0px;
+	left:0px;
+}
+
+#divAnswer2container{
+	width: -webkit-calc(50% - 5px);
+	width: -moz-calc(50% - 5px);
+	width: -ms-calc(50% - 5px);
+	width: calc(50% - 5px);
+	height: -webkit-calc(50% - 5px);
+	height: -moz-calc(50% - 5px);
+	height: -ms-calc(50% - 5px);
+	height: calc(50% - 5px);
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	border:2px solid;
+	top:0px;
+	right:0px;
+}
+
+#divAnswer3Container{
+	width: -webkit-calc(50% - 5px);
+	width: -moz-calc(50% - 5px);
+	width: -ms-calc(50% - 5px);
+	width: calc(50% - 5px);
+	height: -webkit-calc(50% - 5px);
+	height: -moz-calc(50% - 5px);
+	height: -ms-calc(50% - 5px);
+	height: calc(50% - 5px);
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	border:2px solid;
+	bottom: 0px;
+	left: 0px;
+}
+
+#divAnswer4Container{
+	width: -webkit-calc(50% - 5px);
+	width: -moz-calc(50% - 5px);
+	width: -ms-calc(50% - 5px);
+	width: calc(50% - 5px);
+	height: -webkit-calc(50% - 5px);
+	height: -moz-calc(50% - 5px);
+	height: -ms-calc(50% - 5px);
+	height: calc(50% - 5px);
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	border:2px solid;
+	bottom: 0px;
+	right: 0px;
+}
+
+.answer{
+	position: relative;
+	left:50%;
+	top:50%;
+	-webkit-transform:translate(-50%, -50%);
+	-moz-transform:translate(-50%, -50%);
+	-ms-transform:translate(-50%, -50%);
+	transform:translate(-50%, -50%);
+	text-align: center;
+	color:white;
+	font-size:4vmin;
+}
+
+.divLetter{
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 20px;
+	height: 20px;
+	padding: 5px;
+	text-align: center;
+	color:white;
+	font-weight: bold;
+}

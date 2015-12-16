@@ -1,0 +1,61 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/quiz.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/quiz.css">
+
+	<script type="text/javascript" src='js/lib/jquery.knob.js'></script>
+</head>
+<body>
+
+	<div id='divContainer'>
+		<div id='divCountdownContainer'>
+			<div id='divCountdownTop'>
+				<div id='divCountdownTopTitle'></div>
+				<div id='divCountdownTopText'></div>
+			</div>
+			<div id='divCountdownMid'>
+				<div id='divCountdownCentered'>
+					<input type="text" id="divCountdown">
+				</div>
+			</div>
+			<div id='divCountdownBot'></div>
+		</div>
+		
+		<div id='divTopContainer'>
+			<div id='divHeader'></div>
+			<div id='divQuestionText'>
+				<div id='divQuestionTextTop'></div>
+				<div id='divQuestionTextMid'></div>
+				<div id='divQuestionTextBot'></div>
+			</div>
+		</div>
+		<div id='divMiddleContainer'>
+			<div id='divTimer'>
+				<canvas id='canvasTimer'></canvas>
+			</div>
+		</div>
+		<div id='divBottomContainer'>
+			<div id='divAnswer1Container' class='divAnswerContainer'>
+				<div class='divLetter'>A</div>
+				<div id='answer1' class='answer'></div>
+			</div>
+			<div id='divAnswer2Container' class='divAnswerContainer'>
+				<div class='divLetter'>B</div>
+				<div id='answer2' class='answer'></div>
+			</div>
+			<div id='divAnswer3Container' class='divAnswerContainer'>
+				<div class='divLetter'>C</div>
+				<div id='answer3' class='answer'></div>
+			</div>
+			<div id='divAnswer4Container' class='divAnswerContainer'>
+				<div class='divLetter'>D</div>
+				<div id='answer4' class='answer'></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

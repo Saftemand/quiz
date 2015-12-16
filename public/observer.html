@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/observer.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/observer.css">
+	<script type="text/javascript" src='js/lib/jquery.knob.js'></script>
+
+</head>
+<body>
+	<div id='divOuterContainer'>
+		<div id='divInnerContainer'>
+			<div id='divQuestionContainer'>
+				<div id="divQuestionInfo">
+					<h3 id="questionInfoHeader" class="label info"></h3>
+				</div>
+				<div id="divQuestionHeader">
+					<h1 class="label header" id="questionHeaderParagraph"></h1>
+				</div>
+				<div id="divMainContent" style="display: table;">
+					<p class="label main-content" id="questionTextParagraph" style="display: table-cell; vertical-align: middle;"></p>
+				</div>
+				<div id="divTrivia" style="display: none; width:100%; height:20%;">
+					<p id="triviaParagraph" class="label main-content" style="display: table-cell; vertical-align: middle;"></p>
+				</div>
+				<div id='divImgTrivia'>
+					<div id='divTriviaImgCentered'>
+						<img id="triviaImg">
+					</div>
+				</div>
+				<div id='divTimer'>
+					<canvas id='canvasTimer'></canvas>
+				</div>
+			</div>
+			<div id='divAnswersContainer'>
+				<div id='divAnswer1' class='div-answer'>
+					<p class="label answer" id="answer1-paragraph"></p>
+				</div>
+				<div id='divAnswer2' class='div-answer'>
+					<p class="label answer" id="answer2-paragraph"></p>
+				</div>
+				<div id='divAnswer3' class='div-answer'>
+					<p class="label answer" id="answer3-paragraph"></p>
+				</div>
+				<div id='divAnswer4' class='div-answer'>
+					<p class="label answer" id="answer4-paragraph"></p>
+				</div>
+			</div>
+			<div id='divScoreContainer'>
+				<div id='divScoreHeader'>
+					<h1 class="label header">Total Score</h1>
+				</div>
+				<table>
+					<tr style="border-bottom: 1px solid rgb(200,200,200)">
+						<td>
+							<div class="score-cells-left">
+								<p class="label scoreheader-left">Name</p></td>
+							</div>
+						<td>
+							<div class="score-cells-right">
+								<p class="label scoreheader-right">Points</p>
+							</div>
+						</td>
+					</tr>
+					<tr style="height: 100%">
+						<td style="border-right: 1px solid rgb(200,200,200); width:70%">
+							<div id="scoreNames" class="score-cells-left" style="height: 100%">
+								<ul>
+									<li><p class="label"></p></li>
+									<li><p class="label"></p></li>
+									<li><p class="label"></p></li>
+									<li><p class="label"></p></li>
+								</ul>
+							</div>
+						</td>
+						<td>
+							<div id="scorePoints" class="score-cells-right" style="height: 100%">
+								<ul>
+									<li><p class="label" style="text-align: right"></p></li>
+									<li><p class="label" style="text-align: right"></p></li>
+									<li><p class="label" style="text-align: right"></p></li>
+									<li><p class="label" style="text-align: right"></p></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id='divLogoContainer'>
+				<img id="imgCommercial" class="commercial">
+			</div>
+		</div>
+		<div id='divPendingResult'>
+			<div id='divPendingResultHeader'></div>
+			<div id='divPendingResultMid'>
+				<div id='divCountdownCentered'>
+					<input type="text" id="divCountdown">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
