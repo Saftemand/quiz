@@ -6,21 +6,19 @@ var server = 'ws://' + window.document.location.host.replace(/:.*/, '') + ':' + 
 var client = new WebSocket(server);
 
 client.onopen = function(message){
-  console.log('OnOpenMessage: ');
   var obj = {
     action:'connectToQuizAsObserver',
     connectionId:QueryString.id
   };
     client.send(JSON.stringify(obj));
-}
+};
 
 client.onmessage = function(message){
-  console.log(message.data);
+
   var msg = JSON.parse(message.data);
 
   if(msg.action == 'ok'){
-    console.log("connected");
-    //Do nothing atm. Everything is fine!
+
   }else if(msg.action == 'wrongId'){
     alert("No quiz is active with the given id");
   }else if(msg.action === 'startPreTimer'){
@@ -50,16 +48,12 @@ client.onmessage = function(message){
         score:msg.participants[i].points
       });
     }
-    //var convertedLastRoundSummary = {
-    //  questionCount : 9,
-    //  totalQuestionCount : 10,
-    //  scores : score
-    //};
-    WebSocketCommunicator.stopTime(2); //integer
+
+    WebSocketCommunicator.stopTime(2);
     WebSocketCommunicator.updatePlayers(scores);
     PlayerManager.showTotalScore();
   } else if(msg.action === 'showScoreForLastRound'){
-    WebSocketCommunicator.showScoreForLastRound(msg.lastRoundSummary); //object
+    WebSocketCommunicator.showScoreForLastRound(msg.lastRoundSummary);
   } else if(msg.action === 'updatePlayers'){
     var scores = [];
     for(var i = 0; i < msg.participants.length; i++){
@@ -78,7 +72,6 @@ client.onmessage = function(message){
     WebSocketCommunicator.showInfo(convertedInfo); //To set the info at the top, and start the commercials
     WebSocketCommunicator.showPendingScreen(msg.title, msg.connectionId, msg.timeLeft, msg.totalTime);
 
-    //TODO show counter until quiz is started
   }else if(msg.action == 'started'){
     var convertedInfo = {
       info : msg.title,
@@ -99,73 +92,6 @@ client.onmessage = function(message){
 
 };
 
-// ---------------- test-objekter ---------------
-var infoContent = {
-  info : 'Waxies The International Pubstomp Quiz 2015',
-  commercials : [{name: "Waxies", image: "http://epicbars.dk/wp-content/uploads/2014/01/Waxies.jpg"}, {name: "Coca cola", image: "http://cache.ultiworld.com/wordpress/wp-content/uploads/2015/04/coca-cola.jpg"}],
-  players : [{name: "Jelle", score:1000}, {name: "Nøhr", score:1200}, {name: "Peter", score:1500}, {name: "Michael", score:500}]
-};
-
-var questionContent1 = {
-  questionText : "Which foot is placed in front if you are a southpaw?",
-  secondsBeforeAnswersIsShown : 3,
-  answers : [{text: "left", isCorrect: true},{text: "right", isCorrect:true},{text: "don't know", isCorrect:false},{text: "none", isCorrect:false}],
-  answerTime : 10,
-  questionCount: 9,
-  totalQuestionCount: 10,
-  players : [{name: "Jelle", score:1000}, {name: "Nøhr", score:1200}, {name: "Peter", score:1500}, {name: "Michael", score:500}],
-  trivia : {image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9feEAlkCrWOwm0_pcl8u5l_P6sVdA_I1A9b3f_0xYIXmgSTNl", text : "This is a trivial hammer...."}
-};
-
-var questionContent2 = {
-  questionText : "Which foot is placed in front if you are have an orthodox stance?",
-  secondsBeforeAnswersIsShown : 0,
-  answers : [{text: "left", isCorrect: true},{text: "right", isCorrect:false},{text: "none", isCorrect:false},{text: "don't know", isCorrect:false}],
-  answerTime : 15,
-  questionCount: 10,
-  totalQuestionCount: 10,
-  players : [{name: "Jelle", score:1000}, {name: "Nøhr", score:1200}, {name: "Peter", score:1500}, {name: "Michael", score:500}],
-  trivia : {image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9feEAlkCrWOwm0_pcl8u5l_P6sVdA_I1A9b3f_0xYIXmgSTNl", text : "This is a trivial hammer...."}
-};
-
-var lastRoundSummary1 = {
-  questionCount : 9,
-  totalQuestionCount : 10,
-  scores : [{ name: 'Jelle', scoreLastRound : 200},
-  { name: 'Nøhr', scoreLastRound : 300},
-  { name: 'Peter', scoreLastRound : 100},
-  { name: 'Michael', scoreLastRound : 200}]
-};
-
-var lastRoundSummary2 = {
-  questionCount : 10,
-  totalQuestionCount : 10,
-  scores : [{ name: 'Jelle', scoreLastRound : 300},
-  { name: 'Nøhr', scoreLastRound : 200},
-  { name: 'Peter', scoreLastRound : 300},
-  { name: 'Michael', scoreLastRound : 100}]
-};
-// -------------------------------------------
-
-
-$(document).ready(function(){
-  //1: show info:
-  // WebSocketCommunicator.showInfo(infoContent);
-
-  //2: new Question
-  // WebSocketCommunicator.newQuestion(questionContent1);
-
-  //3: start the time
-  // WebSocketCommunicator.startTime();
-
-  //4: stop the time
-  // WebSocketCommunicator.stopTime(5, 5);
-
-  //5: summary //not implemented yet...
-  // WebSocketCommunicator.summary();
-});
-
-
 var WebSocketCommunicator = function(){
   var showInfo = function(infoObject){
     InfoManager.sessionId = QueryString.id;
@@ -183,7 +109,7 @@ var WebSocketCommunicator = function(){
       'min':0,
       'max':totalTime - 1,
       readOnly:true,
-      width:$('#divCountdownCentered').width(), //Maybe do this dynamically when resizing 
+      width:$('#divCountdownCentered').width(),
       height:$('#divCountdownCentered').height(),
       thickness:0.1,
       fgColor:'rgba(200, 0, 200, 0.7)',
@@ -206,10 +132,9 @@ var WebSocketCommunicator = function(){
           .val(timeLeft)
           .trigger('change');
     }, 1000);
-  }
+  };
 
   var showResultScreen = function(title, participants){
-    //Her ser vi et eksempel på noget værre grisekode! :D
     $('#divInnerContainer').hide();
     $('#divPendingResult').show();
     $('#divPendingResultHeader').html(title);
@@ -220,7 +145,7 @@ var WebSocketCommunicator = function(){
     $('#divPendingResultMid').append('<div class="divPendingResultMidColumn" id="divPendingResultMidColumn2"></div>');
     $('#divPendingResultMid').append('<div class="divPendingResultMidColumn" id="divPendingResultMidColumn3"></div>');
     $('#divPendingResultMid').append('<div class="divPendingResultMidColumn" id="divPendingResultMidColumn4"></div>');
-   
+
     $.each( participants, function( key, val ) {
       if(key < 25){
         $('#divPendingResultMidColumn1').append('<div id="divPendingResultMidEntry"><div id="divPendingResultMidEntryName">' + (key + 1) + '. ' + val.name + '</div><div id="divPendingResultMidEntryScore">' + val.score + '</div></div>');
@@ -232,11 +157,11 @@ var WebSocketCommunicator = function(){
         $('#divPendingResultMidColumn4').append('<div id="divPendingResultMidEntry"><div id="divPendingResultMidEntryName">' + (key + 1) + '. ' + val.name + '</div><div id="divPendingResultMidEntryScore">' + val.score + '</div></div>');      
       }
     });
-  }
+  };
 
   var newQuestion = function(questionObject){
     $('#divPendingResult').hide();
-    $('#divInnerContainer').show(); //Do this before calling "showTimer()". Otherwise the timers width is fucked!
+    $('#divInnerContainer').show();
 
     readQuestionFromJSON(questionObject);
     QuestionManager.hideTrivia();
@@ -258,7 +183,6 @@ var WebSocketCommunicator = function(){
 
   var stopTime = function(timeBeforeTriviaShows, timeBeforeTotalScoreShows){
     QuestionManager.stopTimer();
-    //PlayerManager.showScoreForLastRound();
     QuestionManager.showRightAnswer();
 
     var countDownTrivia = timeBeforeTriviaShows;
@@ -323,31 +247,6 @@ var WebSocketCommunicator = function(){
     showPendingScreen : showPendingScreen,
     showResultScreen : showResultScreen
   };
-}();
-
-//scope example
-var Instance = function(){
-  var testProp = 'not touched...';
-  this.testProp2 = 'not touched...';
-  //public function
-  var test1 = function(){
-    console.log('test1 called');
-    test2();
-    console.log('testProp: ' + testProp);
-    console.log('testProp2: ' + this.testProp2);
-  };
-
-  //private function
-  var test2 = function(){
-    console.log('test2 called');
-  };
-
-  return {
-    test1:test1,
-    testProp : testProp,
-    testProp2 : testProp2
-  };
-
 }();
 
 var InfoManager = function(){
@@ -541,8 +440,6 @@ var QuestionManager = function(){
 
     if (obj.complete) {
       $('#divImgTrivia').show();
-    } else {
-      console.log('lolol img doesnt work...');
     }
   };
 
@@ -659,7 +556,7 @@ var PlayerManager = function(){
     //change scores:
     var names = '<ul>';
     var scores = '<ul>';
-    console.log(lastRoundSummary.scores);
+    
     lastRoundSummary.scores.forEach(function(score, index){
       names += '<li><p class="label">' + (index+1) + ': ' + score.name + '</p></li>';
       scores += '<li><p class="label" style="text-align: right">' + score.scoreLastRound + '</p></li>';
@@ -735,8 +632,6 @@ var CommercialManager = function(){
 }();
 
 var QueryString = function () {
-  // This function is anonymous, is executed immediately and
-  // the return value is assigned to QueryString!
   var query_string = {};
   var query = window.location.search.substring(1);
   var vars = query.split("&");
